@@ -12,7 +12,12 @@ const translations = {
         login: 'Login',
         register: 'Register',
         appointment: 'Appointment',
-        news : 'News',
+        news: 'News',
+        preferences: 'Preferences',
+        Dark_Theme: 'Dark Mode',
+        TemplateScreen: 'Template Screen',
+        subscriber: 'Subscriber',
+        like: 'Like',
     },
     th: {
         home: 'หน้าหลัก',
@@ -23,7 +28,12 @@ const translations = {
         login: 'เข้าสู่ระบบ',
         register: 'สมัครสมาชิก',
         appointment: 'นัดหมาย',
-        news : 'ข่าวสาร',
+        news: 'ข่าวสาร',
+        preferences: 'การตั้งค่า',
+        Dark_Theme: 'โหมดมืด',
+        TemplateScreen: 'หน้าจอตัวอย่าง',
+        subscriber: 'ผู้ติดตาม',
+        like: 'Like',
     }
 };
 
@@ -32,6 +42,6 @@ i18n.defaultLocale = "th";
 i18n.locale = Localization.locale.search(/-|_/) !== -1 ? Localization.locale.slice(0, 2) : Localization.locale;
 i18n.fallbacks = true;
 
-console.log(Localization.locale)
+console.log("Device Lang -> ", Localization.locale)
 
 export default i18n;

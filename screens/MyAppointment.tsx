@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 
+import ScreenWrapper from './ScreenWrapper';
+
 const MyAppointmentScr = () => {
     const [appointment, setAppointment] = React.useState('');
 
@@ -11,6 +13,7 @@ const MyAppointmentScr = () => {
     };
 
     return (
+        <ScreenWrapper>
         <View>
             <Text>My Appointment</Text>
             <TextInput
@@ -21,7 +24,8 @@ const MyAppointmentScr = () => {
             <Button mode="contained" onPress={handleSaveAppointment}>
                 Save Appointment
             </Button>
-        </View>
+            </View>
+        </ScreenWrapper>
     );
 };
 

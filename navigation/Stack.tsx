@@ -8,10 +8,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { getHeaderTitle } from '@react-navigation/elements';
 
 import BottomTabs from './BottomTabNavigator';
-import Details from '../screens/Home';
-import { StackNavigatorParamlist } from './Types';
+import i18n from '../helper/I18n';
 
-const Stack = createStackNavigator<StackNavigatorParamlist>();
+import TemplateScreen from '../screens/TemplateScreen';
+
+const Stack = createStackNavigator();
 
 export const StackNavigator = () => {
     const theme = useTheme();
@@ -50,11 +51,21 @@ export const StackNavigator = () => {
             }}
         >
             <Stack.Screen
-                name="FeedList"
+                name="Home"
                 component={BottomTabs}
                 options={({ route }) => {
-                    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
-                    return { headerTitle: routeName };
+                    const routeName = getFocusedRouteNameFromRoute(route) ?? 'home';
+                    return {
+                        headerTitle: i18n.t(routeName)
+                    };
+                }}
+            />
+            <Stack.Screen
+                name="TemplateScreen"
+                component={TemplateScreen}
+                options={({ route }) => {
+                    const routeName = getFocusedRouteNameFromRoute(route) ?? 'TemplateScreen';
+                    return { headerTitle: i18n.t(routeName) };
                 }}
             />
         </Stack.Navigator>

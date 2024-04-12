@@ -6,7 +6,7 @@ const ProfileScr = () => {
     return (
         <ScreenWrapper contentContainerStyle={styles.container}>
             <View style={styles.container}>
-                <Text style={styles.title}>Profile Screen</Text>
+                <Text style={styles.title}>This is a TemplateScreen</Text>
             </View>
         </ScreenWrapper >
     );
