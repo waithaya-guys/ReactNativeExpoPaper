@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useColorScheme , StatusBar} from 'react-native';
-import { MD3DarkTheme, MD3LightTheme, PaperProvider, Button } from 'react-native-paper';
+import { useColorScheme, StatusBar } from 'react-native';
+import { MD3DarkTheme, MD3LightTheme, PaperProvider, Button, useTheme } from 'react-native-paper';
 import { StyleSheet, Text, View } from 'react-native';
 
 import RootNavigator from './navigation/RootNavigator';
@@ -29,6 +29,8 @@ export default function App() {
         [theme]
     );
 
+    const themes = useTheme();
+
     return (
         <PreferencesContext.Provider value={preferences}>
             <PaperProvider theme={
@@ -42,7 +44,14 @@ export default function App() {
                         colors: { ...MD3DarkTheme.colors, primary: '#1ba1f2' },
                     }
             }>
-                <StatusBar/>
+                <StatusBar
+                    translucent = {true}
+                    animated={true}
+                    backgroundColor="transparent"
+                    barStyle={
+                        theme === 'light'? 'dark-content': 'light-content'
+                    }
+                />
                 <React.Fragment>
                     <SafeAreaInsetsContext.Consumer>
                         {(insets) => <RootNavigator />}

@@ -28,8 +28,9 @@ export const StackNavigator = () => {
                     cardStyleInterpolator,
                     header: ({ navigation, route, options, back }) => {
                         const title = getHeaderTitle(options, route.name);
+                        console.log(i18n.t(title), title);
                         return (
-                            <Appbar.Header elevated>
+                            <Appbar.Header elevated >
                                 {back ? (
                                     <Appbar.BackAction onPress={() => navigation.goBack()} />
                                 ) : (navigation as any).openDrawer ? (
@@ -43,7 +44,24 @@ export const StackNavigator = () => {
                                         }
                                     />
                                 ) : null}
-                                <Appbar.Content title={title} />
+                                <Appbar.Content
+                                    title={
+                                        title === 'Home' || title === 'หน้าหลัก' ? 
+                                        (<MaterialCommunityIcons
+                                            style={{ marginRight: 10 }}
+                                            name="facebook"
+                                            size={40}
+                                            color={theme.colors.primary}
+                                        />): title
+                                    }
+                                    titleStyle={{
+                                        fontSize: 18,
+                                        fontWeight: 'bold',
+                                        color: title === 'Home' || title === 'หน้าหลัก' ? theme.colors.primary : theme.colors.inverseSurface,
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                    }}
+                                />
                             </Appbar.Header>
                         );
                     },
@@ -56,7 +74,7 @@ export const StackNavigator = () => {
                 options={({ route }) => {
                     const routeName = getFocusedRouteNameFromRoute(route) ?? 'home';
                     return {
-                        headerTitle: i18n.t(routeName)
+                        headerTitle: i18n.t(routeName),
                     };
                 }}
             />

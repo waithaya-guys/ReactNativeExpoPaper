@@ -5,6 +5,7 @@ import { I18n } from 'i18n-js';
 const translations = {
     en: {
         home: 'Home',
+        Home: 'Home',
         profile: 'Profile',
         settings: 'Settings',
         logout: 'Logout',
@@ -21,6 +22,7 @@ const translations = {
     },
     th: {
         home: 'หน้าหลัก',
+        Home: 'หน้าหลัก',
         profile: 'ข้อมูลส่วนตัว',
         settings: 'ตั้งค่า',
         logout: 'ออกจากระบบ',
