@@ -30,7 +30,10 @@ export const StackNavigator = () => {
                         const title = getHeaderTitle(options, route.name);
                         console.log(i18n.t(title), title);
                         return (
-                            <Appbar.Header elevated >
+                            <Appbar.Header 
+                                elevated
+                                mode='center-aligned'
+                            >
                                 {back ? (
                                     <Appbar.BackAction onPress={() => navigation.goBack()} />
                                 ) : (navigation as any).openDrawer ? (
